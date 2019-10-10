@@ -63,8 +63,8 @@ namespace WPFDBParte2
             txtId.Text = "";
             txtNombre.Text = "";
             cbGenero.SelectedIndex = 0;
-            txtTelefono.Text = "";
-            txtDireccion.Text = "";
+            txtAutor.Text = "";
+            txtAño.Text = "";
             btnNuevo.Content = "Nuevo";
             txtId.IsEnabled = true;
         }
@@ -82,7 +82,7 @@ namespace WPFDBParte2
                     if (cbGenero.Text != "Selecciona Genero")
                     {
                         cmd.CommandText = "insert into Progra(Id,Nombre,Genero,Telefono,Direccion) " +
-                            "Values(" + txtId.Text + ",'" + txtNombre.Text + "','" + cbGenero.Text + "'," + txtTelefono.Text + ",'" + txtDireccion.Text + "')";
+                            "Values(" + txtId.Text + ",'" + txtNombre.Text + "','" + cbGenero.Text + "'," + txtAutor.Text + ",'" + txtAño.Text + "')";
                         cmd.ExecuteNonQuery();
                         MostrarDatos();
                         MessageBox.Show("Alumno agregado correctamente...");
@@ -96,8 +96,8 @@ namespace WPFDBParte2
                 }
                 else
                 {
-                    cmd.CommandText = "update Progra set Nombre='" + txtNombre.Text + "',Genero='" + cbGenero.Text + "',Telefono=" + txtTelefono.Text
-                        + ",Direccion='" + txtDireccion.Text + "' where Id=" + txtId.Text;
+                    cmd.CommandText = "update Progra set Nombre='" + txtNombre.Text + "',Genero='" + cbGenero.Text + "',Telefono=" + txtAutor.Text
+                        + ",Direccion='" + txtAño.Text + "' where Id=" + txtId.Text;
                     cmd.ExecuteNonQuery();
                     MostrarDatos();
                     MessageBox.Show("Datos del alumno Actualizados...");
@@ -118,8 +118,8 @@ namespace WPFDBParte2
                 txtId.Text = row["Id"].ToString();
                 txtNombre.Text = row["Nombre"].ToString();
                 cbGenero.Text = row["Genero"].ToString();
-                txtTelefono.Text = row["Telefono"].ToString();
-                txtDireccion.Text = row["Direccion"].ToString();
+                txtAutor.Text = row["Autor"].ToString();
+                txtAño.Text = row["Año"].ToString();
                 txtId.IsEnabled = false;
                 btnNuevo.Content = "Actualizar";
             }
