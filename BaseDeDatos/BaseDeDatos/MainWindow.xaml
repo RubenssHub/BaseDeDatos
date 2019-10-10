@@ -22,7 +22,7 @@
             <Label Content="Biblioteca de Música" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold"></Label>
             <WrapPanel>
                 <TextBlock Text="Id Canción : "/>
-                <TextBox Name="txtId" />
+                <TextBox Name="txtIdCancion" />
             </WrapPanel>
             <WrapPanel>
                 <TextBlock Text="Nombre : "/>

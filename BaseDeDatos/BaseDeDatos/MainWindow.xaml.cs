@@ -136,7 +136,7 @@ namespace WPFDBParte2
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "delete from Progra where Id=" + row["Id"].ToString();
+                cmd.CommandText = "delete from Musica where Id=" + row["IdCancion"].ToString();
                 cmd.ExecuteNonQuery();
                 MostrarDatos();
                 MessageBox.Show("Alumno eliminado correctamente....");
