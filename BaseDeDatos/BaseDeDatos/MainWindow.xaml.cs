@@ -29,7 +29,7 @@ namespace WPFDBParte2
             InitializeComponent();
             //Conectamos la base de datos a nuestro archivo Access
             con = new OleDbConnection();
-            con.ConnectionString = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\AlumnosBD.mdb";
+            con.ConnectionString = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\BDMusica.mdb";
             MostrarDatos();
         }
         //Mostramos los registros de la tabla
@@ -39,7 +39,7 @@ namespace WPFDBParte2
             if (con.State != ConnectionState.Open)
                 con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "select * from Progra";
+            cmd.CommandText = "select * from Musica";
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             dt = new DataTable();
             da.Fill(dt);
