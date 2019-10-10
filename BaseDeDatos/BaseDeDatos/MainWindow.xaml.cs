@@ -60,13 +60,13 @@ namespace WPFDBParte2
         //Limpiamos todos los campos
         private void LimpiaTodo()
         {
-            txtId.Text = "";
+            txtIdCancion.Text = "";
             txtNombre.Text = "";
             cbGenero.SelectedIndex = 0;
             txtAutor.Text = "";
             txtAño.Text = "";
             btnNuevo.Content = "Nuevo";
-            txtId.IsEnabled = true;
+            txtIdCancion.IsEnabled = true;
         }
         private void BtnNuevo_Click(object sender, RoutedEventArgs e)
         {
@@ -75,14 +75,14 @@ namespace WPFDBParte2
                 con.Open();
             cmd.Connection = con;
 
-            if (txtId.Text != "")
+            if (txtIdCancion.Text != "")
             {
-                if (txtId.IsEnabled == true)
+                if (txtIdCancion.IsEnabled == true)
                 {
                     if (cbGenero.Text != "Selecciona Genero")
                     {
                         cmd.CommandText = "insert into Progra(Id,Nombre,Genero,Telefono,Direccion) " +
-                            "Values(" + txtId.Text + ",'" + txtNombre.Text + "','" + cbGenero.Text + "'," + txtAutor.Text + ",'" + txtAño.Text + "')";
+                            "Values(" + txtIdCancion.Text + ",'" + txtNombre.Text + "','" + cbGenero.Text + "'," + txtAutor.Text + ",'" + txtAño.Text + "')";
                         cmd.ExecuteNonQuery();
                         MostrarDatos();
                         MessageBox.Show("Alumno agregado correctamente...");
@@ -97,7 +97,7 @@ namespace WPFDBParte2
                 else
                 {
                     cmd.CommandText = "update Progra set Nombre='" + txtNombre.Text + "',Genero='" + cbGenero.Text + "',Telefono=" + txtAutor.Text
-                        + ",Direccion='" + txtAño.Text + "' where Id=" + txtId.Text;
+                        + ",Direccion='" + txtAño.Text + "' where Id=" + txtIdCancion.Text;
                     cmd.ExecuteNonQuery();
                     MostrarDatos();
                     MessageBox.Show("Datos del alumno Actualizados...");
@@ -115,12 +115,12 @@ namespace WPFDBParte2
             if (gvDatos.SelectedItems.Count > 0)
             {
                 DataRowView row = (DataRowView)gvDatos.SelectedItems[0];
-                txtId.Text = row["Id"].ToString();
+                txtIdCancion.Text = row["Id"].ToString();
                 txtNombre.Text = row["Nombre"].ToString();
                 cbGenero.Text = row["Genero"].ToString();
                 txtAutor.Text = row["Autor"].ToString();
                 txtAño.Text = row["Año"].ToString();
-                txtId.IsEnabled = false;
+                txtIdCancion.IsEnabled = false;
                 btnNuevo.Content = "Actualizar";
             }
             else
@@ -136,7 +136,7 @@ namespace WPFDBParte2
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 cmd.Connection = con;
-                cmd.CommandText = "delete from Musica where Id=" + row["IdCancion"].ToString();
+                cmd.CommandText = "delete from Musica where Id =" + row["IdCancion"].ToString();
                 cmd.ExecuteNonQuery();
                 MostrarDatos();
                 MessageBox.Show("Alumno eliminado correctamente....");
